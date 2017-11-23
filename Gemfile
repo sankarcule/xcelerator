@@ -24,6 +24,8 @@ gem 'bcrypt'
 gem 'active_model_serializers', '~> 0.8.3'
 gem 'fabrication'
 gem 'faker', '~> 1.7.2'
+gem 'swaggard'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
