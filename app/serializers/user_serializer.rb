@@ -1,3 +1,7 @@
+
+# @attr [integer] id
+# @attr [string] email
+
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :full_name
+  attributes :id, :email
 end

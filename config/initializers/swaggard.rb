@@ -17,6 +17,7 @@ Swaggard.configure do |config|
   # either as a header or as part of the query.
   # See https://github.com/adrian-gomez/swaggard#additional-parameters for more info
   # config.additional_parameters = []
+  config.default_content_type = 'application/json'
 
   # The base path on which the API is served, which is relative to the host.
   # If it is not included, the API is served directly under the host.

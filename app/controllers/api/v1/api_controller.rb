@@ -1,4 +1,5 @@
 class Api::V1::ApiController < ApplicationController
+  include Response
 
   def require_login
     authenticate_token || render_unauthorized("Access denied")
@@ -18,13 +19,11 @@ class Api::V1::ApiController < ApplicationController
   private
 
     def authenticate_token
-      authenticate_with_http_token do |token, options|
-        api = ApiKey.find_by(token: token)
-        if api && !api.expired?
-          User.find(api.user_id)
-        else
-          false
-        end
+      api = ApiKey.find_by(token: params[:token])
+      if api && !api.expired?
+        User.find(api.user_id)
+      else
+        false
       end
     end
 end
