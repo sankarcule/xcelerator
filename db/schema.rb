@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123131316) do
+ActiveRecord::Schema.define(version: 20171123134518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20171123131316) do
     t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
+  create_table "topics_of_interests", force: :cascade do |t|
+    t.string "topic_name"
+    t.string "short_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "full_name"
@@ -32,4 +39,14 @@ ActiveRecord::Schema.define(version: 20171123131316) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users_interests", force: :cascade do |t|
+    t.bigint "topics_of_interest_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topics_of_interest_id"], name: "index_users_interests_on_topics_of_interest_id"
+    t.index ["user_id"], name: "index_users_interests_on_user_id"
+  end
+
+  add_foreign_key "users_interests", "users"
 end

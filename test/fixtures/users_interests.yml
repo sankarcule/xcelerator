@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topics_of_interest: 
+  user: one
+
+two:
+  topics_of_interest: 
+  user: two
